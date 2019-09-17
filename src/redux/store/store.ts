@@ -2,7 +2,7 @@ import thunk from "redux-thunk";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import {
   ADD_TO_DO,
-  EDIT_TO_DO,
+  GET_TO_DOS,
   DELETE_TO_DO,
   todoActionTypes
 } from "../actions/actionTypes";
@@ -32,6 +32,10 @@ export function appReducer(
         todos: state.todos.filter(
           todo => todo.id.toString() !== action.payload.toString()
         )
+      };
+    case GET_TO_DOS:
+      return {
+        ...state
       };
     default:
       return state;

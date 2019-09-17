@@ -7,3 +7,14 @@ export default interface ITask {
   completed: Boolean;
   priority: String;
 }
+
+export interface TodoState {
+  todos: [
+    {
+      id: Number;
+      content: String;
+      completed: Boolean;
+      priority: String;
+    }
+  ];
+}

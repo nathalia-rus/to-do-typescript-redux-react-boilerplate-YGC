@@ -4,6 +4,11 @@ import IId from "../types";
 export const ADD_TO_DO = "ADD_TO_DO";
 export const DELETE_TO_DO = "DELETE_TO_DO";
 export const EDIT_TO_DO = "EDIT_TO_DO";
+export const GET_TO_DOS = "GET_TO_DOS";
+
+interface getToDoAction {
+  type: typeof GET_TO_DOS;
+}
 
 interface addTodoAction {
   type: typeof ADD_TO_DO;
@@ -20,4 +25,8 @@ interface editTodoAction {
   payload: ITask;
 }
 
-export type todoActionTypes = addTodoAction | deleteTodoAction | editTodoAction;
+export type todoActionTypes =
+  | addTodoAction
+  | deleteTodoAction
+  | getToDoAction
+  | editTodoAction;

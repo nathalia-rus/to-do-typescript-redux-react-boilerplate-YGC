@@ -2,11 +2,18 @@ import ITask from "../types";
 import IId from "../types";
 
 import {
+  GET_TO_DOS,
   ADD_TO_DO,
   DELETE_TO_DO,
   EDIT_TO_DO,
   todoActionTypes
 } from "./actionTypes";
+
+export function getToDos(): todoActionTypes {
+  return {
+    type: GET_TO_DOS
+  };
+}
 
 export function addTodo(newTask: ITask): todoActionTypes {
   return {
