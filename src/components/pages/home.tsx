@@ -1,16 +1,17 @@
 import React from "react";
 
 import Button from "../atoms/button";
-import { getTodos } from "../../redux/actions/todoActions";
+import { getTodos } from "../../redux/actions/actions";
 import { connect } from "react-redux";
-import { AppProps, AppState } from "../../redux/actions/interface";
+import { IAppProps, IAppState } from "../../redux/interface";
 
-export class HomePage extends React.Component<AppProps, AppState> {
+export class HomePage extends React.Component<IAppProps, IAppState> {
   state = {
     isLoading: false
   };
 
   simpleAction = () => {
+    console.log("action being dispatched");
     this.props.getTodos();
   };
 
@@ -18,13 +19,14 @@ export class HomePage extends React.Component<AppProps, AppState> {
     return (
       <div>
         <h1>Home Page</h1>
-        <Button> Submit </Button>
         <p>
           This website allows you to create tasks and keep track of your to-do
           list :) :)
         </p>
-        <p>{JSON.stringify(this.props)}</p>
-        <button type="button" onClick={() => this.simpleAction}>
+        {console.log(this.props.todos)}
+
+        {/* <p>{JSON.stringify(this.props)}</p> */}
+        <button type="button" onClick={() => this.simpleAction()}>
           Test redux action
         </button>
       </div>
@@ -36,7 +38,7 @@ const mapStateToProps = (state: any) => ({
   todos: state.todos
 });
 
-const mapDispatchToProps = (dispatch: function) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   getTodos: () => dispatch(getTodos())
 });
 

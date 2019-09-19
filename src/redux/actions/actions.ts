@@ -1,30 +1,15 @@
-import ITask from "../types";
-import IId from "../types";
+import { getTodosSuccess } from "./actioncreators";
+import { IGetTodosSuccessAction } from "./actionTypes";
+import data from "../data.json";
 
-import {
-  ADD_TO_DO,
-  DELETE_TO_DO,
-  EDIT_TO_DO,
-  todoActionTypes
-} from "./actionTypes";
-
-export function addTodo(newTask: ITask): todoActionTypes {
-  return {
-    type: ADD_TO_DO,
-    payload: newTask
+export const getTodos = () => {
+  return (dispatch: (arg0: IGetTodosSuccessAction) => void) => {
+    const response = data;
+    if (response.status === 200) {
+      dispatch(getTodosSuccess(data.todos));
+    } else {
+      console.log("there's been an error");
+      // dispatch error action
+    }
   };
-}
-
-export function deleteTodo(id: IId): todoActionTypes {
-  return {
-    type: DELETE_TO_DO,
-    payload: id
-  };
-}
-
-export function editTodo(editedTodo: ITask): todoActionTypes {
-  return {
-    type: EDIT_TO_DO,
-    payload: editedTodo
-  };
-}
+};
