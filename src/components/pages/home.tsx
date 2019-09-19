@@ -23,9 +23,8 @@ export class HomePage extends React.Component<IAppProps, IAppState> {
           This website allows you to create tasks and keep track of your to-do
           list :) :)
         </p>
-        {console.log(this.props.todos)}
-
-        {/* <p>{JSON.stringify(this.props)}</p> */}
+        {/* {console.log(this.props.todos)} */}
+        <p>{JSON.stringify(this.props)}</p>
         <button type="button" onClick={() => this.simpleAction()}>
           Test redux action
         </button>
