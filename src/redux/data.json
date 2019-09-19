@@ -3,19 +3,19 @@
   "todos": [
     {
       "id": 0,
-      "task": "Finish learning all the stack",
+      "todo": "Finish learning all the stack",
       "completed": false,
       "priority": "high"
     },
     {
       "id": 1,
-      "task": "Hi that's the second note",
+      "todo": "Hi that's the second note",
       "completed": false,
       "priority": "medium"
     },
     {
       "id": 2,
-      "task": "Hi that's the second note",
+      "todo": "Hi that's the second note",
       "completed": false,
       "priority": "low"
     }
