@@ -1,18 +1,21 @@
 import React from "react";
 
-import Button from "../atoms/button";
+// import Button from "../atoms/button";
 import { getTodos } from "../../redux/actions/actions";
 import { connect } from "react-redux";
-import { IAppProps, IAppState } from "../../redux/interface";
+import { IAppProps, IAppState, ITodo } from "../../redux/interface";
 
 export class HomePage extends React.Component<IAppProps, IAppState> {
   state = {
     isLoading: false
   };
 
-  simpleAction = () => {
-    console.log("action being dispatched");
-    this.props.getTodos();
+  todoList = (list: ITodo[]) => {
+    if (list.length > 0) {
+      return list.map((i: ITodo, index: any) => {
+        return <div key={index}>{i.todo}</div>;
+      });
+    }
   };
 
   render() {
@@ -20,15 +23,16 @@ export class HomePage extends React.Component<IAppProps, IAppState> {
       <div>
         <h1>Home Page</h1>
         <p>
-          This website allows you to create tasks and keep track of your to-do
+          This website allows you to create todos and keep track of your to-do
           list :) :)
         </p>
         {console.log(this.props.todos)}
-
-        {/* <p>{JSON.stringify(this.props)}</p> */}
-        <button type="button" onClick={() => this.simpleAction()}>
+        <button type="button" onClick={() => this.props.getTodos()}>
           Test redux action
         </button>
+
+        <p> Those are your to dos :</p>
+        {this.todoList(this.props.todos)}
       </div>
     );
   }

@@ -2,7 +2,7 @@
 
 export interface ITodo {
   id: Number;
-  content: String;
+  todo: String;
   completed: Boolean;
   priority: String;
 }
