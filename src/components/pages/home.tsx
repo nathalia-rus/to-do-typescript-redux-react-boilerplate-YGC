@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { TodoState } from "../../redux/types";
 import { AppState } from "../../redux/store/store";
@@ -15,6 +16,15 @@ type Props = {
 };
 
 const HomePage: React.FC<Props> = ({ todos, addTodo, getToDos }) => {
+  useEffect(() => {
+    addTodo({
+      id: 0,
+      content: "this is the first note",
+      completed: false,
+      priority: "high"
+    });
+  });
+
   return (
     <div>
       <h1>Home Page</h1>
